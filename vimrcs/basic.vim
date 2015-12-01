@@ -33,7 +33,6 @@
 "    -> Status line
 "    -> Editing mappings
 "    -> vimgrep searching and cope displaying
-"    -> Spell checking
 "    -> Misc
 "    -> Helper functions
 "
@@ -43,15 +42,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history VIM has to remember
-set history=500
-
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-
-" Set to auto read when a file is changed from the outside
-set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -78,9 +68,6 @@ set langmenu=en
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
-" Turn on the WiLd menu
-set wildmenu
-
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
@@ -89,17 +76,10 @@ else
     set wildignore+=.git\*,.hg\*,.svn\*
 endif
 
-"Always show current position
-set ruler
-
-" Height of the command bar
-set cmdheight=2
-
 " A buffer becomes hidden when it is abandoned
 set hid
 
 " Configure backspace so it acts as it should act
-set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 " In many terminal emulators the mouse works just fine, thus enable it.
@@ -115,9 +95,6 @@ set smartcase
 
 " Highlight search results
 set hlsearch
-
-" Makes search act like search in modern browsers
-set incsearch 
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw 
@@ -161,9 +138,6 @@ if has("gui_running")
     set guitablabel=%M\ %t
 endif
 
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
-
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
@@ -182,9 +156,6 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
-
-" Be smart when using tabs ;)
-set smarttab
 
 " 1 tab == 4 spaces
 set shiftwidth=4
@@ -263,20 +234,9 @@ try
 catch
 endtry
 
-" Return to last edit position when opening files (You want this!)
-" autocmd BufReadPost *
-"      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-"      \   exe "normal! g`\"" |
-"      \ endif
-" Remember info about open buffers on close
-" set viminfo^=%
-
-
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=2
 
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
@@ -342,35 +302,13 @@ map <leader>p :cp<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Spell checking
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
-
-" Shortcuts using <leader>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-" Quickly open a buffer for scribble
-map <leader>q :e ~/buffer<cr>
-
 " Quickly open a markdown buffer for scribble
 map <leader>x :e ~/buffer.md<cr>
-
-" Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
-
-
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
