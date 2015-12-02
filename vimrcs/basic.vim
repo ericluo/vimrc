@@ -94,6 +94,7 @@ set tm=500
 set foldcolumn=1
 
 set formatoptions+=mM
+set encoding=utf-8
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
