@@ -207,6 +207,9 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd! InsertLeave * set imdisable
+autocmd! InsertEnter * set noimdisable
+
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
