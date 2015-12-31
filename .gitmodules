@@ -19,3 +19,6 @@
 [submodule "sources_non_forked/Vim-R-plugin"]
 	path = sources_non_forked/Vim-R-plugin
 	url = https://github.com/vim-scripts/Vim-R-plugin.git
+[submodule "sources_non_forked/R-Vim-runtime"]
+	path = sources_non_forked/R-Vim-runtime
+	url = https://github.com/jalvesaq/R-Vim-runtime.git
